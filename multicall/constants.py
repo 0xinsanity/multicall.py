@@ -11,8 +11,7 @@ try:
     if network.is_connected():
         w3 = web3
     else:
-        from web3.auto import w3
-except ImportError:
+        except ImportError:
     from web3.auto import w3
 
 GAS_LIMIT: int = int(os.environ.get('GAS_LIMIT', 50_000_000))
@@ -37,6 +36,7 @@ class Network(IntEnum):
     Cronos = 25
     Optimism = 10
     OptimismKovan = 69
+    Baobab = 1001
 
 MULTICALL_ADDRESSES: Dict[int,str] = {
     Network.Mainnet: '0xeefBa1e63905eF1D7ACbA5a8513c70307C1cE441',
@@ -52,6 +52,7 @@ MULTICALL_ADDRESSES: Dict[int,str] = {
     Network.Cronos: '0x5e954f5972EC6BFc7dECd75779F10d848230345F',
     Network.Optimism: '0x187C0F98FEF80E87880Db50241D40551eDd027Bf',
     Network.OptimismKovan: '0x2DC0E2aa608532Da689e89e237dF582B783E552C',
+    Network.Baobab: '0xa1e7c514aed820ccd0ab82297496b5632477ecdf',
 }
 
 MULTICALL2_ADDRESSES: Dict[int,str] = {
@@ -71,6 +72,7 @@ MULTICALL2_ADDRESSES: Dict[int,str] = {
     Network.Cronos: '0x5e954f5972EC6BFc7dECd75779F10d848230345F',
     Network.Optimism: '0x2DC0E2aa608532Da689e89e237dF582B783E552C',
     Network.OptimismKovan: '0x2DC0E2aa608532Da689e89e237dF582B783E552C',
+    Network.Baobab: '0xa1e7c514aed820ccd0ab82297496b5632477ecdf',
 }
 
 # With default AsyncBaseProvider settings, some dense calls will fail
